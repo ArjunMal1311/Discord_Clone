@@ -28,9 +28,7 @@ const roleIconMap = {
     [MemberRole.ADMIN]: <ShieldAlert className="h-4 w-4 mr-2 text-rose-500" />
 }
 
-export const ServerSidebar = async ({
-    serverId
-}: ServerSidebarProps) => {
+export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
     const profile = await currentProfile();
 
     if (!profile) {
@@ -71,10 +69,7 @@ export const ServerSidebar = async ({
 
     return (
         <div className="flex flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5]">
-            <ServerHeader
-                server={server}
-                role={role}
-            />
+            <ServerHeader server={server} role={role} />
             <ScrollArea className="flex-1 px-3">
                 <div className="mt-2">
                     <ServerSearch
@@ -118,6 +113,7 @@ export const ServerSidebar = async ({
                         ]}
                     />
                 </div>
+                
                 <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2" />
                 {!!textChannels?.length && (
                     <div className="mb-2">

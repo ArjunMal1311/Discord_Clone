@@ -18,7 +18,7 @@ export async function PATCH(req: Request, { params }: { params: { serverId: stri
         const server = await db.server.update({
             where: {
                 id: params.serverId,
-                profileId: {
+                profileId: { // dont delete admin account
                     not: profile.id
                 },
                 members: {
