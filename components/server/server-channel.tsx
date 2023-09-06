@@ -1,11 +1,6 @@
 "use client";
 
-import {
-    Channel,
-    ChannelType,
-    MemberRole,
-    Server
-} from "@prisma/client";
+import { Channel, ChannelType, MemberRole, Server } from "@prisma/client";
 import { Edit, Hash, Lock, Mic, Trash, Video } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 
@@ -25,11 +20,7 @@ const iconMap = {
     [ChannelType.VIDEO]: Video,
 }
 
-export const ServerChannel = ({
-    channel,
-    server,
-    role
-}: ServerChannelProps) => {
+export const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
     const { onOpen } = useModal();
     const params = useParams();
     const router = useRouter();
