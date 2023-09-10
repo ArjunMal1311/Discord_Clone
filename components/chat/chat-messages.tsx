@@ -32,17 +32,7 @@ interface ChatMessagesProps {
   type: "channel" | "conversation";
 }
 
-export const ChatMessages = ({
-  name,
-  member,
-  chatId,
-  apiUrl,
-  socketUrl,
-  socketQuery,
-  paramKey,
-  paramValue,
-  type,
-}: ChatMessagesProps) => {
+export const ChatMessages = ({ name, member, chatId, apiUrl, socketUrl, socketQuery, paramKey, paramValue, type, }: ChatMessagesProps) => {
   const queryKey = `chat:${chatId}`;
   const addKey = `chat:${chatId}:messages`;
   const updateKey = `chat:${chatId}:messages:update` 
@@ -50,13 +40,7 @@ export const ChatMessages = ({
   const chatRef = useRef<ElementRef<"div">>(null);
   const bottomRef = useRef<ElementRef<"div">>(null);
 
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    status,
-  } = useChatQuery({
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } = useChatQuery({
     queryKey,
     apiUrl,
     paramKey,
