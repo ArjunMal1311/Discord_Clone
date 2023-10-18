@@ -11,13 +11,13 @@ interface ServerIdPageProps {
 };
 
 const ServerIdPage = async ({ params }: ServerIdPageProps) => {
-    const profile = await currentProfile();
+    const profile = await currentProfile(); 
 
     if (!profile) {
         return redirectToSignIn();
     }
 
-    const server = await db.server.findUnique({
+    const server = await db.server.findUnique({ // Finding the server using the serverId and ensuring that the profile is part of the server
         where: {
             id: params.serverId,
             members: {
